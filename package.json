@@ -1,0 +1,26 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "This is a bank website.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "author": "Francis Zhao",
+  "devDependencies": {
+    "angular-mocks": "^1.5.7",
+    "browserify": "^13.0.1",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^4.2.0",
+    "jasmine": "^2.4.1",
+    "karma": "^1.1.1",
+    "karma-browserify": "^5.1.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.7",
+    "underscore": "^1.8.3"
+  }
+}

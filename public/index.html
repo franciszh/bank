@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bankApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Bank account</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="/js/main.js"></script>
+	<link rel="stylesheet" href="/css/normalize.css">
+	<link rel="stylesheet" href="/css/skeleton.css">
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+	<section class = 'nav container'>
+  <figure class = 'nav__figure three columns'>
+      <img class = 'nav_logo' src = "http://getskeleton.com/images/feather.svg" alt = "fake logo">
+  </figure> 
+  <nav class = 'nav__menu nine columns'>
+    <a class = 'nav__menu__link one-third column' href = "javascript:void(0);">Accounts</a>
+    <a class = 'nav__menu__link one-third column' href = "javascript:void(0);">Transfer</a>
+    <a class = 'nav__menu__link one-third column' href="javascript:void(0);">View</a>
+    <a class = 'nav__menu__hamburger' href="javascript:void(0);" onclick = "myFunction()">☰</a>
+  </nav> 
+</section>
+<section class = 'balance container'>
+    <header>
+      <h3 class = 'balance__title'>Transaction History</h3>
+    </header>
+    <article class = 'balance__contentbody row'>
+      <div class = 'four columns balance__content_item balance__content--aligncenter'>
+          <p class = 'balance__content__title--strong' >Savings Account</p>
+           101010212 
+      </div>
+      <p class = 'offset-by-two three columns balance__content_item'>
+          Current Balance <br/>
+           $9,123123,123.00
+      </p>  
+      <p class = 'three columns balance__content_item'>
+          Available Balance <br/>
+           $9,123123,123.00
+      </p>  
+    </article> 
+</section>
+<div ng-controller="SearchController">  
+	<section class = 'container searchfield'>
+		<label for = 'searchField'>
+			Search for Description
+		</label>
+		<input type = 'text' placeholder = 'Search for Description' id = 'searchField' class = 'searchfield__input' ng-model="description">
+		<button ng-click="searchTransaction(description)">Search</button>
+	</section>
+	<section class = 'container datagrid'>
+		<div class = 'row datagrid__row datagrid__row--noborder'>
+			<div class = 'two columns'>Date</div>
+			<div class = 'four columns'>Description</div>
+			<div class = 'three columns'>Debit/Credit</div>
+			<div class = 'three columns'>Balance</div>
+		</div>
+		<div class = 'row datagrid__row' ng-repeat="transaction in transactions">
+			<div class = 'datagrid__row_date two columns'>{{transaction.date}}</div>
+			<div class = 'datagrid__row_des four columns'>{{transaction.description}}</div>
+			<div class = 'datagrid__row_crde three columns'>{{transaction.debit}}</div>
+			<div class = 'datagrid__row_balance three columns'>{{transaction.balance}}</div>
+		</div>
+		<button class = 'datagrid__load' ng-click="loadMore()" ng-show="hasMore()">Load More</button>	
+	</section>
+	
+</div>
+</body>
+<script>
+function myFunction() {
+    document.getElementsByClassName("nav")[0].classList.toggle("nav--mobile");
+}
+</script>
+</html>
