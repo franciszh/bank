@@ -3,7 +3,7 @@ var _ = require('underscore')
 module.exports = function($scope, $q, $http) {
   this.getAll = function() {
       var deferred = $q.defer();
-      $http.get('/MOCK_DATA.json').success(function(data) {
+      $http.get('bank/public/MOCK_DATA.json').success(function(data) {
         deferred.resolve(data);
       })
       .error(function() {
@@ -15,7 +15,7 @@ module.exports = function($scope, $q, $http) {
 
   this.getTransactionByDescription = function(description) {
       var deferred = $q.defer();
-      $http.get('/MOCK_DATA.json').success(function(data) {
+      $http.get('bank/public/MOCK_DATA.json').success(function(data) {
         var result = _.reject(data, function(transaction) {
           return transaction.description.indexOf(description) < 0;
         })
